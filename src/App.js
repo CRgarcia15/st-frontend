@@ -4,8 +4,10 @@ import Nav from './components/Nav';
 import Login from './components/Login';
 import Err from './components/404';
 import Signup from './components/Signup';
+import CreateProject from './components/CreateProject';
 import {Route, Routes} from "react-router-dom"
-import UserHome from './components/UserHome';
+
+
 
 function App() {
   return (
@@ -16,8 +18,8 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<Signup />}/>
-          <Route path="/UserHome" element={<UserHome />}/>
-          <Route path="/404" element={<Err />}/>
+          <Route path="/projects/create" element={<CreateProject />}/>
+          <Route path="/*" element={<Err />}/>
         </Routes>
       </div>
     </>
