@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom'
 
 function Home () {
     return (

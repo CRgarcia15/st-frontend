@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Nav />
-      <div className="App">
+      <div className="App bg-gray-100">
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={<Login />}/>

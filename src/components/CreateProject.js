@@ -44,6 +44,7 @@ function CreateProject () {
                 <br/>
 
                 <button className="text-zinc-700 font-semibold ring-2 ring-zinc-700 rounded p-2 ml-2 px-4 transition ease-in-out delay-100 hover:bg-zinc-400/50 duration-300" type="submit">Create</button>
+                <Link to='/'>Return Home</Link>
             </form>
         </div>
     )
