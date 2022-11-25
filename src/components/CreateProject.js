@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-
+//add styling to it 
 function CreateProject () {
     const [ projectName, setProjectName ] = useState('')
     const [ dueDate, setDueDate ] = useState('')
