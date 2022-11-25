@@ -1,17 +1,25 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Home () {
+  const [ project, setproject ] = useState([])
+
+  useEffect(() => {
+    const projectViewsAPI = 'http://localhost:7000/projects'
+    fetch(projectViewsAPI)
+      .then((res) => res.json())
+      .then((project) => setproject(project))
+  }, [])
+  
     return (
       <div className="home">
         <div>
-          <h1 className='text-orange-700'>Welcome to SprintTrack</h1>
-          <h3>Where you can keep track of any project you can come up with.</h3>
-
-          <p>If you have an account with us please login. If you don't have an account with us, please make one to start tracking your projects.</p>
-          <Link to="/login" className="loginRedirect">login</Link>
-          <Link to="/signup" className="signUpRedirect">Sing up</Link>
+          <h3 className="pt-2">Where you can keep track of any project you can come up with.</h3>
+          <div className="pt-8 rounded bg-white w-3/4 mx-auto">
+            <h1>I</h1>
+          </div>
+          
         </div>
       </div>
     )
