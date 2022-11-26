@@ -17,7 +17,7 @@ function Home () {
         <div>
           <h3 className="pt-2">Where you can keep track of any project you can come up with.</h3>
           <div className="pt-8 rounded bg-white w-3/4 mx-auto mt-5">
-            <h1 className="text-left">Your Current Projects</h1>
+            <h1 className="text-left font-bold border-b-4 border-lime-700">Your Current Projects</h1>
             {projects.map((projects, index) => {
               return <div>
                         <Link to={`/projects/${projects._id}`}>

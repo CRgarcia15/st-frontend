@@ -23,7 +23,7 @@ function Login () {
 
                 </form>
 
-                <p className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:tex-lime-400" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</p>
+                <p className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:text-lime-800" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</p>
             </div>
         </div>
     )
