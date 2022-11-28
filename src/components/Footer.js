@@ -3,9 +3,9 @@ import React from "react";
 //just a solution that I think works
 function Footer () {
     return(
-        <div className="bg-gray-100 h-screen">
-            <h1 className="text-gray-100">This is just a footer to fill in the background color at the bottom of the page</h1>
-        </div>
+        <>
+            <h1 className="text-gray-200 text-center  mt-10">This site is built on React by Cesar Garcia</h1>
+        </>
     )
 }
 
