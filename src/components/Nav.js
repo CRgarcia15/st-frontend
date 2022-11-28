@@ -8,7 +8,7 @@ function Nav () {
                 <Link to="/" className="text-7xl font-bold hover:text-lime-900">SprintTrack</Link>
                     <ul className="flex">
                         <li className="float-right">
-                            <Link to="/login" className="text-gray-700 transition ease-in-out delay-150 hover:text-white hover:bg-lime-800 rounded p-1 font-semibold">Login</Link>
+                            <Link to="/login" className="text-gray-700 transition ease-in-out delay-150 hover:text-white hover:bg-lime-800 rounded py-1.5 px-4 font-semibold">Login</Link>
                         </li>
                     </ul>
             </div>

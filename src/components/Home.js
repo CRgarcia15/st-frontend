@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import { LoremIpsum } from 'react-lorem-ipsum'
 
 function Home () {
   const [ projects, setProjects ] = useState([])
@@ -16,7 +17,7 @@ function Home () {
       <div className="home">
         <div>
           <h3 className="pt-2">Where you can keep track of any project you can come up with.</h3>
-          <div className="pt-8 rounded bg-white w-3/4 mx-auto mt-5">
+          <div className="pt-8 rounded-2xl bg-white w-11/12 mx-auto mt-5 drop-shadow-lg shadow-inner">
             <h1 className="text-left font-bold border-b-4 border-lime-700">Your Current Projects</h1>
             {projects.map((projects, index) => {
               return <div>
@@ -29,9 +30,8 @@ function Home () {
                         </Link>
                       </div>
             })}
-           
+              <LoremIpsum p={2} />
           </div>
-          
         </div>
       </div>
     )

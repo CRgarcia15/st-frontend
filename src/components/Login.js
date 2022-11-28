@@ -19,7 +19,7 @@ function Login () {
                          <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" type='password' name='password' required></input>
                     </div>
 
-                    <button className="border-2 rounded hover:bg-lime-800 hover:text-white m-auto p-2 px-6" type="submit">Login</button>
+                    <button className="border-2 rounded-full hover:bg-lime-800 hover:text-white m-auto py-2.5 px-6" type="submit">Login</button>
 
                 </form>
 
