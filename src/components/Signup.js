@@ -17,7 +17,7 @@ function Signup () {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
          }).then(() => {
-        console.log('New Project Added')
+        console.log('New user created')
         })
         navigate('/')
     }; 

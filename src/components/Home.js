@@ -1,16 +1,18 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { LoremIpsum } from 'react-lorem-ipsum'
 
 function Home () {
   const [ projects, setProjects ] = useState([])
 
   useEffect(() => {
     const projectViewsAPI = 'http://localhost:7000/projects'
+
     fetch(projectViewsAPI)
       .then((res) => res.json())
-      .then((Projects) => setProjects(Projects))
+      .then((projects) => setProjects(projects))
+    
+    console.log("making a fecth")
   }, [])
   
     return (
@@ -30,7 +32,6 @@ function Home () {
                         </Link>
                       </div>
             })}
-              <LoremIpsum p={2} />
           </div>
         </div>
       </div>
