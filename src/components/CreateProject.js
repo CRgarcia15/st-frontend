@@ -43,7 +43,7 @@ function CreateProject () {
 
                 <br/>
 
-                <button className="text-gray-700 font-bold  ring-zinc-700 rounded p-2 ml-2 transition ease-in-out delay-100 hover:bg-lime-800 duration-300 hover:text-white" type="submit">Create</button>
+                <button className="border-2 rounded-full hover:bg-lime-800 hover:text-white m-auto py-2.5 px-6 mr-5" type="submit">Create</button>
                 
                 <Link to='/' className="text-gray-700 transition ease-in-out p-2 m-2 delay-150 hover:text-white hover:bg-lime-800 rounded p-1 font-semibold py-2">Return Home</Link>
             </form>
