@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
+// You got to add the token to the header with "bearer" in it to use the validation. 
 function Home () {
   const [ projects, setProjects ] = useState([])
 

@@ -3,14 +3,13 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 function Signup () {
-    const [ name, setName ] = useState('')
     const [ username, setUsername ] = useState('')
     const [ password, setPassword ] = useState('')
     const navigate = useNavigate()
 
     function handlesubmit (e) {
         e.preventDefault()
-        const user = { name, username, password }
+        const user = { username, password }
 
         fetch('http://localhost:7000/user', {
             method: 'POST',
@@ -27,12 +26,6 @@ function Signup () {
         <div className="signup-form">
             <div className="form-container">
                 <form onSubmit={handlesubmit} className="grid grid-rows-8 font-bold space-y-2">
-
-                    <div className="mt-5 content-auto">
-                        <label classname="text-lg" htmlFor="name">Full name</label>
-                        <br/>
-                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" type='text' name='name' required value={name} onChange={e => setName(e.target.value)}></input>
-                    </div>
 
                     <div>
                         <label classname="text-lg" htmlFor="username">Username</label>
