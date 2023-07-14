@@ -1,8 +1,17 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Login () {
-    //create functionality for loging in
+
+    useEffect(() => {
+        const userLoginAPI = 'http://localhost:7000/user/login'
+    
+        fetch(userLoginAPI)
+          .then((res) => res.json())
+           
+        console.log("making a fecth")
+      }, [])
+
     return (
         <div className="login">
             <div className="login-container">
