@@ -1,16 +1,51 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useContext, useState } from "react";
+import { username } from "react-lorem-ipsum";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 function Login () {
 
-    useEffect(() => {
+    const history = useNavigate()
+
+    const { setCurrentUser } = useContext(currentUser)
+
+    cosnt [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    })
+
+    const [errorMessage, setErrorMessage] = useState(null)
+
+    /*useEffect(() => {
         const userLoginAPI = 'http://localhost:7000/user/login'
     
         fetch(userLoginAPI)
           .then((res) => res.json())
            
         console.log("making a fecth")
-      }, [])
+      }, [])*/
+
+      async function handleSubmit(e) {
+        e.preventDefault()
+        const response = await fetch(`http://localhost:7000/user/login`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
+
+        const data = await response.json()
+
+        if (response.status === 200) {
+            setCurrentUser(data.user)
+            history.push('/') //still not sure this will work, as the update changed the way it works
+            // also check the what is the correct route
+        } else {
+            setErrorMessage(data.message)
+        }
+      }
 
     return (
         <div className="login">
