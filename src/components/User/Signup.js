@@ -11,7 +11,7 @@ function Signup () {
         e.preventDefault()
         const user = { username, password }
 
-        fetch('http://localhost:7000/user', {
+        fetch('http://localhost:7000/user/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)

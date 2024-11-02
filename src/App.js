@@ -3,7 +3,7 @@ import Home from './components/Home';
 import Nav from './components/Nav';
 import Login from './components/Login';
 import Err from './components/404';
-import Signup from './components/Signup';
+import Signup from './components/User/Signup';
 import CreateProject from './components/CreateProject';
 import ExpandedPrct from './components/ExpandedPrjct';
 import Footer from './components/Footer';
