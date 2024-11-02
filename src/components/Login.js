@@ -17,7 +17,6 @@ function Login () {
         e.preventDefault()
         const response = await fetch(`http://localhost:7000/user/login`, {
             method: 'POST',
-            credentials: 'include',
             headers: {
                 'content-type': 'application/json'
             },
@@ -27,7 +26,7 @@ function Login () {
         const data = await response.json()
 
         if (response.status === 200) {
-            history.push('project/') //still not sure this will work, as the update changed the way it works
+            history.push('project/') //still not sure this will work, as the update changed the way redirect works
         } else {
             setErrorMessage(data.message)
         }
