@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './components/Home';
 import Nav from './components/Nav';
-import Login from './components/Login';
+import Login from './components/User/Login';
 import Err from './components/404';
 import Signup from './components/User/Signup';
 import CreateProject from './components/CreateProject';

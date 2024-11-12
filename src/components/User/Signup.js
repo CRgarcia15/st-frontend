@@ -45,10 +45,7 @@ function Signup () {
                     </div>
                    
                 </form>
-
-                
-            </div>
-            
+            </div>   
         </div>
     )
 }
