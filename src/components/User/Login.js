@@ -47,6 +47,11 @@ function Login () {
                     </div>
 
                 </form>
+
+                <div>
+                    <h4 className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:text-lime-800" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</h4>
+                </div>
+                
             </div>
         </div>
     )
