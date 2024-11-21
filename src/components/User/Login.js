@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login () {
+function Login () {                                         //got to fix the styling, it is currently working as expected
     const [ username, setUsername ] = useState('')
     const [ password, setPassword ] = useState('')
     const navigate = useNavigate()
@@ -51,7 +51,7 @@ function Login () {
                 <div>
                     <h4 className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:text-lime-800" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</h4>
                 </div>
-                
+
             </div>
         </div>
     )

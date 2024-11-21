@@ -5,12 +5,12 @@ import { Link, useNavigate } from "react-router-dom"
 function CreateProject () {
     const [ projectName, setProjectName ] = useState('')
     const [ dueDate, setDueDate ] = useState('')
-    const [ assingments, setAssingments ] = useState('')
+    const [ description, setDescription ] = useState('')
     const navigate = useNavigate()
 
     function handlesubmit (e) {
         e.preventDefault()
-        const project = { projectName, dueDate, assingments }
+        const project = { projectName, dueDate, description }
 
         fetch('http://localhost:7000/projects', {
             method: 'POST',
@@ -37,9 +37,9 @@ function CreateProject () {
 
                 <br/>
 
-                <label htmlFor="assignments">Assingments</label>
+                <label htmlFor="assignments">Description</label>
                 <br/>
-                <textarea name="assignments" id="assingments" type="text" className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" required value={assingments} onChange={e => setAssingments(e.target.value)}></textarea>
+                <textarea name="description" id="description" type="text" className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" required value={description} onChange={e => setDescription(e.target.value)}></textarea>
 
                 <br/>
 

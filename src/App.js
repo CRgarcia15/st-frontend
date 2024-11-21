@@ -4,7 +4,7 @@ import Nav from './components/Nav';
 import Login from './components/User/Login';
 import Err from './components/404';
 import Signup from './components/User/Signup';
-import CreateProject from './components/CreateProject';
+import CreateProject from './components/Project/CreateProject';
 import ExpandedPrct from './components/ExpandedPrjct';
 import Footer from './components/Footer';
 import {Route, Routes} from "react-router-dom"
@@ -19,8 +19,8 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/signup" element={<Signup />}/>
-            <Route path="/projects/create" element={<CreateProject />}/>
-            <Route path="/projects/expanded" element={<ExpandedPrct />}/>
+            <Route path="/project/create" element={<CreateProject />}/>
+            <Route path="/project/expanded" element={<ExpandedPrct />}/>
             <Route path="/*" element={<Err />}/>
           </Routes>
           <Footer />

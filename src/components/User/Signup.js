@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
-function Signup () {
+function Signup () {                                            // it is currently working as expected, fix styling 
     const [ username, setUsername ] = useState('')
     const [ password, setPassword ] = useState('')
     const navigate = useNavigate()
