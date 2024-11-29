@@ -1,44 +1,57 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { CurrentUser } from "../../contexts/CurrentUser";
 
 function Login () {                                         //got to fix the styling, it is currently working as expected
-    const [ username, setUsername ] = useState('')
-    const [ password, setPassword ] = useState('')
-    const navigate = useNavigate()
 
-    function handlesubmit (e) {
+    const navigate = useNavigate() //used to be useHistory
+
+    const { setCurrentUser } = useContext(CurrentUser)
+
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    })
+
+    const [errorMessage, setErrorMessage] = useState(null)
+
+    async function handleSubmit(e) {
         e.preventDefault()
-        const user = { username, password }
-        try {
-            fetch('http://localhost:7000/user/login', {
-                        method: 'POST',
-                        headers: { 'content-type': 'application/json' },
-                        body: JSON.stringify(user)
-                }).then(() => {
-                    console.log('User has logged in')
-                })
-            navigate('/')
-        }catch(error) {
-            console.log(error)
-        }
-    };
+        const response = await fetch('http://localhost:7000/user/login/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
 
+        const data = await response.json()
+
+        if(response.status === 200) {
+            setCurrentUser(data.user)
+            localStorage.setItem('token', data.token)
+            navigate.push(`/`)
+        } else {
+            setErrorMessage(data.message)
+        }
+    }
+    
     return (
         <div className="login-form">
             <div className="form-container">
-                <form onSubmit={handlesubmit} className="">
+                <form onSubmit={handleSubmit} className="">
 
                     <div>
                         <label className="text-lg" htmlFor="username">Username</label>
                         <br/>
-                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" type='text' name='username' required value={username} onChange={e => setUsername(e.target.value)}></input>
+                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" style={{ textAlign: 'center' }} type='text' name='username' required value={username} onChange={e => setCredentials({ ...credentials, username: e.target.value })}></input>
                     </div>
 
                     <div>
                         <label className="text-lg" htmlFor="password">Password</label>
                         <br/>
-                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" type='text' name='password' required value={password} onChange={e => setPassword(e.target.value)}></input>
+                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" style={{ textAlign: 'center' }} type='password' name='password' required value={password} onChange={e => setCredentials({...credentials, password: e.target.value})}></input>
                     </div>
 
                     <div>
