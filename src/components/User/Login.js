@@ -38,9 +38,19 @@ function Login () {                                         //got to fix the sty
     }
     
     return (
-        <div className="login-form">
-            <div className="form-container">
-                <form onSubmit={handleSubmit} className="">
+        <main>
+            <h1>Login</h1>
+            {errorMessage !== null
+                ?(
+                    <div className="alert alert-danger" role="alert">
+                        {errorMessage}
+                    </div>
+                )
+                :null
+            }
+            <div className="login-form">
+                <div className="form-container">
+                    <form onSubmit={handleSubmit} className="">
 
                     <div>
                         <label className="text-lg" htmlFor="username">Username</label>
@@ -59,14 +69,16 @@ function Login () {                                         //got to fix the sty
                         <Link className="text-lime-600 hover:text-lime-800" to='/'>Cancel</Link>
                     </div>
 
-                </form>
+                    </form>
 
-                <div>
-                    <h4 className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:text-lime-800" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</h4>
+                    <div>
+                        <h4 className="font-bold mt-2">If you don't have an account, please <Link className="text-lime-600 hover:text-lime-800" to={"/signup"}>Sign-Up</Link> to begin tracking your projects.</h4>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
+        </main>
+        
     )
 }
 
