@@ -55,13 +55,24 @@ function Login () {                                         //got to fix the sty
                     <div>
                         <label className="text-lg" htmlFor="username">Username</label>
                         <br/>
-                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" style={{ textAlign: 'center' }} type='text' name='username' required value={username} onChange={e => setCredentials({ ...credentials, username: e.target.value })}></input>
+                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" 
+                        style={{ textAlign: 'center' }} 
+                        type='username' 
+                        name='username' 
+                        id="username"
+                        required value={credentials.username} 
+                        onChange={e => setCredentials({ ...credentials, username: e.target.value })}></input>
                     </div>
 
                     <div>
                         <label className="text-lg" htmlFor="password">Password</label>
                         <br/>
-                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" style={{ textAlign: 'center' }} type='password' name='password' required value={password} onChange={e => setCredentials({...credentials, password: e.target.value})}></input>
+                        <input className="w-1/2 text-sm font-semibold border border-lime-800 px-3 py-2 rounded-lg shadow-sm mx-auto focus:outline-none focus:border-green-600" 
+                        style={{ textAlign: 'center' }} 
+                        type='password' 
+                        name='password' 
+                        required value={credentials.password} 
+                        onChange={e => setCredentials({...credentials, password: e.target.value})}></input>
                     </div>
 
                     <div>
