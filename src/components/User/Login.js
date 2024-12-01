@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+//import React, { useContext } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { CurrentUser } from "../../contexts/CurrentUser";
+//import { CurrentUser } from "../../contexts/CurrentUser";
 
 function Login () {                                         //got to fix the styling, it is currently working as expected
 
     const navigate = useNavigate() //used to be useHistory
 
-    const { setCurrentUser } = useContext(CurrentUser)
+    //const { setCurrentUser } = useContext(CurrentUser)
 
     const [credentials, setCredentials] = useState({
         username: '',
@@ -18,7 +18,7 @@ function Login () {                                         //got to fix the sty
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const response = await fetch('http://localhost:7000/user/login/', {
+        const response = await fetch(`http://localhost:7000/user/login/`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -29,9 +29,9 @@ function Login () {                                         //got to fix the sty
         const data = await response.json()
 
         if(response.status === 200) {
-            setCurrentUser(data.user)
+           // setCurrentUser(data.user)
             localStorage.setItem('token', data.token)
-            navigate.push(`/`)
+            navigate(`/`)
         } else {
             setErrorMessage(data.message)
         }
