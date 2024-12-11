@@ -1,13 +1,9 @@
-//import React, { useContext } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-//import { CurrentUser } from "../../contexts/CurrentUser";
 
 function Login () {                                         //got to fix the styling, it is currently working as expected
 
     const navigate = useNavigate() //used to be useHistory
-
-    //const { setCurrentUser } = useContext(CurrentUser)
 
     const [credentials, setCredentials] = useState({
         username: '',
@@ -29,7 +25,6 @@ function Login () {                                         //got to fix the sty
         const data = await response.json()
 
         if(response.status === 200) {
-           // setCurrentUser(data.user)
             localStorage.setItem('token', data.token)
             navigate(`/`)
         } else {
@@ -39,7 +34,6 @@ function Login () {                                         //got to fix the sty
     
     return (
         <main>
-            <h1>Login</h1>
             {errorMessage !== null
                 ?(
                     <div className="alert alert-danger" role="alert">
