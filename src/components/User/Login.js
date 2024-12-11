@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login () {                                         //got to fix the styling, it is currently working as expected
+function Login () {                                         //got to fix the styling, page is currently working as expected
 
-    const navigate = useNavigate() //used to be useHistory
-
+    const navigate = useNavigate() 
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
