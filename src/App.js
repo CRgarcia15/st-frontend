@@ -6,6 +6,7 @@ import Err from './components/404';
 import Signup from './components/User/Signup';
 import CreateProject from './components/Project/CreateProject';
 import ExpandedPrct from './components/ExpandedPrjct';
+import userProjects from './components/User/userProjects';
 import Footer from './components/Footer';
 import {Route, Routes} from "react-router-dom"
 
@@ -17,6 +18,7 @@ function App() {
         <Nav />
           <Routes>
             <Route path="/" element={<Home />}/>
+            <Route path="/User/userProjects" element={<userProjects />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/signup" element={<Signup />}/>
             <Route path="/project/create" element={<CreateProject />}/>
