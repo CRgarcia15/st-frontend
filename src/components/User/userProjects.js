@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 /* have a button to create new projects 
@@ -7,21 +7,21 @@ have the user name show up as *weclome "logged in user"*
 make it fill the page porperly with a modern look
 show projects*/
 
-function userProjects () {
-    const [ projects, setProjects ] = useState([])
+function UserProjects () {
+    const [ projects, setProjects ] = useState([]);
 
     useEffect(() => {
-        const projectViewsAPI = 'http://localhost:7000/projects'
+      const projectViewsAPI = 'http://localhost:7000/projects'
 
-        fetch(projectViewsAPI)
-         .then((res) => res.json())
-         .then((projects) => setProjects(projects))
+      fetch(projectViewsAPI)
+        .then((res) => res.json())
+        .then((projects) => setProjects(projects))
 
         console.log("making a fetch for user Projects")
     }, [])
 
-    return (
-        <div className="home">
+    return(
+      <div className="home">
                 <div>
                   <h3 className="pt-2">Where you can keep track of any project you can come up with.</h3>
                   <div className="pt-8 rounded-2xl bg-white w-11/12 mx-auto mt-5 drop-shadow-lg shadow-inner">
@@ -43,5 +43,7 @@ function userProjects () {
                 </div>
               </div>
     )
-}
-export default userProjects
+};
+
+export default UserProjects
+
