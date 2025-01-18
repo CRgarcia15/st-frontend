@@ -21,7 +21,7 @@ function UserProjects () {
     }, [])
 
     return(
-      <div className="home">
+      <div className="userProjects">
                 <div>
                   <h3 className="pt-2">Where you can keep track of any project you can come up with.</h3>
                   <div className="pt-8 rounded-2xl bg-white w-11/12 mx-auto mt-5 drop-shadow-lg shadow-inner">
