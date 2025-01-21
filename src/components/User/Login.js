@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Login() {                                         //got to fix the styling, page is currently working as expected
 
     const navigate = useNavigate() 
+
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''

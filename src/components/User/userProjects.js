@@ -10,13 +10,13 @@ show projects*/
 function UserProjects () {
     const [ projects, setProjects ] = useState([]);
 
-    useEffect(() => {
-      const projectViewsAPI = 'http://localhost:7000/projects'
+    useEffect((projects) => {
+      const projectViewsAPI = 'http://localhost:7000/project/'
 
       fetch(projectViewsAPI)
         .then((res) => res.json())
         .then((projects) => setProjects(projects))
-
+        console.log(projects)
         console.log("making a fetch for user Projects")
     }, [])
 

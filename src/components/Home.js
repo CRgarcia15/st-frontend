@@ -7,15 +7,7 @@ show user what it will look like.
 function Home () {
 
     return (
-      <div className="w-1/2 
-      text-sm 
-      font-semibold border 
-      border-lime-800 px-3 py-2 
-      rounded-lg 
-      shadow-sm 
-      mx-auto 
-      focus:outline-none 
-      focus:border-green-600">
+      <div className="w-1/2 text-sm font-semibold border rounded-lg shadow-md mx-auto focus:outline-none focus:border-green-600 text-7xl">
         <h1>HOME</h1>
       </div>
     )
