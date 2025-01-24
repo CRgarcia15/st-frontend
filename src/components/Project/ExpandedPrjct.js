@@ -23,7 +23,7 @@ function ExpandedPrct () {
                 console.log(response)
             })
         })
-        navigate('/')
+        navigate('/User/userProjects')
     }
     
     return (
