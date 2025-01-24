@@ -13,7 +13,12 @@ function UserProjects () {
     useEffect((projects) => {
       const projectViewsAPI = 'http://localhost:7000/project/'
 
-      fetch(projectViewsAPI)
+      fetch(projectViewsAPI, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token")
+        }
+      })
         .then((res) => res.json())
         .then((projects) => setProjects(projects))
         console.log(projects)

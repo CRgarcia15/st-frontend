@@ -17,7 +17,7 @@ function Login() {                                         //got to fix the styl
         const response = await fetch(`http://localhost:7000/user/login/`, {
             method: 'POST',
             headers: {
-                'Bearer': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(credentials)
         })
@@ -25,7 +25,7 @@ function Login() {                                         //got to fix the styl
         const data = await response.json()
 
         if(response.status === 200) {
-            localStorage.setItem('token', data)// previously "data.token" incase it needs to return that. Currently it saves the token in localStorage
+            localStorage.setItem('token', data)
             navigate(`/`)// change the destination 
         } else {
             setErrorMessage(data.message)
