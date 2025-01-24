@@ -5,14 +5,14 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 function ExpandedPrct () {
     const [project, setProject ] = useState({})
     const { id } = useParams()
-    const singleProjectAPI = `http://localhost:7000/projects/${id}`
+    const singleProjectAPI = `http://localhost:7000/project/${id}`
     const navigate = useNavigate()
 
     useEffect(() => {
         fetch(singleProjectAPI)
             .then((res) => res.json())
             .then((project) => setProject(project))
-    }, [id])
+    }, [id, singleProjectAPI]) // Not sure if singleProjectAPI should be there, still need to figure it out. Only reason its there is to remove the warning in console
 
     const handleDelete = (e) => {
         e.preventDefault()
@@ -31,6 +31,7 @@ function ExpandedPrct () {
             <div>
                 <h1>{project.projectName}</h1>
                 <h3>{project.dueDate}</h3>
+                <h3>this is the project you created</h3>
                 
             </div>
             
