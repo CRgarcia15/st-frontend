@@ -14,13 +14,16 @@ function CreateProject () {
     function handlesubmit (e) {
         e.preventDefault()
 
-        fetch('http://localhost:7000/projects/create/', {
+        fetch('http://localhost:7000/project/create/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + localStorage.getItem("token")
+              },
             body: JSON.stringify(project)
          })
 
-        navigate('/')
+        navigate('/User/userProjects')
     }
 
     return (

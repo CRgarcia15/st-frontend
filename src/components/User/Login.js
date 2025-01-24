@@ -26,13 +26,12 @@ function Login() {                                         //got to fix the styl
 
         if(response.status === 200) {
             localStorage.setItem('token', data)
-            navigate(`/`)// change the destination 
+            navigate(`/User/userProjects`)
         } else {
             setErrorMessage(data.message)
         }
         
     }
-    
     
     return (
         <main>
