@@ -6,7 +6,7 @@ import Err from './components/404';
 import Signup from './components/User/Signup';
 import CreateProject from './components/Project/CreateProject';
 import ExpandedPrct from './components/Project/ExpandedPrjct';
-import UserProjects from './components/User/userProjects';
+import UserProjects from './components/Project/userProjects';
 import Footer from './components/Footer';
 import {Route, Routes} from "react-router-dom"
 

@@ -5,15 +5,15 @@ import { useParams, Link, useNavigate } from "react-router-dom"
 function ExpandedPrct () {
     const [project, setProject ] = useState({})
     const { id } = useParams()
-    const singleProjectAPI = 'http://localhost:7000/project/' + {id}
+    const singleProjectAPI = `http://localhost:7000/project/${id}`
     const navigate = useNavigate()
 
     useEffect(() => {
         fetch(singleProjectAPI, {
             method: 'GET',
             headers: {
-                "Content-Type": "application/json",
-                Auhtorization: "Bearer " + localStorage.getItem("token")
+                "Content-Type": "applcation/json",
+                Authorization: "Bearer " + localStorage.getItem("token")
             }
         })
             .then((res) => res.json())
