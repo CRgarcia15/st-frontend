@@ -10,8 +10,6 @@ show projects*/
 function UserProjects () {
     const [ projects, setProjects ] = useState([]);
 
-    //const navigate = useNavigate();
-
     useEffect((projects) => {
       const projectViewsAPI = 'http://localhost:7000/project/'
 
