@@ -9,10 +9,16 @@ function ExpandedPrct () {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(singleProjectAPI)
+        fetch(singleProjectAPI, {
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token")
+            }
+        })
         .then((res) => res.json())
         .then((project) => setProject(project))
-    }, [id])
+        console.log(project)
+    }, [id, project])
 
     const handleDelete = (e) => {
         e.preventDefault()
@@ -35,7 +41,7 @@ function ExpandedPrct () {
                 
             </div>
             
-            <Link className="text-gray-700 transition mt-2 ease-in-out delay-150 hover:text-white hover:bg-lime-800 rounded p-1 font-semibold" to="/">Go Back</Link>
+            <Link className="text-gray-700 transition mt-2 ease-in-out delay-150 hover:text-white hover:bg-lime-800 rounded p-1 font-semibold" to="/User/userProjects">Go Back</Link>
             <form onSubmit={handleDelete}>
                 <button type="submit" value="DELETE">DELETE</button>
             </form>

@@ -26,7 +26,7 @@ function Login() {                                         //got to fix the styl
 
         if(response.status === 200) {
             localStorage.setItem('token', data)
-            navigate(`/User/userProjects`)
+            navigate('/User/userProjects')
         } else {
             setErrorMessage(data.message)
         }

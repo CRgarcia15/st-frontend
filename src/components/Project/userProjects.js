@@ -32,6 +32,7 @@ function UserProjects () {
                     <h1 className="text-left font-bold border-b-4 border-lime-700">Your Current Projects</h1>
                     <div className="flex flex-wrap -mb-4">
                           {projects.map((projects, index) => {
+                            console.log(projects)
                             return <div className="transition ease-in-out delay-50 hover:bg-lime-700 w-64 px-4 mx-4 my-4 rounded-2xl p-4" key={index}>
                                       <Link to={`/project/${projects._id}`}>
                                         <ul>

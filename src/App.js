@@ -22,7 +22,7 @@ function App() {
             <Route path="/signup" element={<Signup />}/> 
             <Route path="/User/userProjects" element={<UserProjects />}/>
             <Route path="/project/create" element={<CreateProject />}/>
-            <Route path="/project/expanded" element={<ExpandedPrct />}/>
+            <Route path="/project/:id" element={<ExpandedPrct />}/>
             <Route path="/*" element={<Err />}/>
           </Routes>
           <Footer />
