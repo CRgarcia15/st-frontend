@@ -18,7 +18,7 @@ function ExpandedPrct () {
         .then((res) => res.json())
         .then((project) => setProject(project))
         console.log(project)
-    }, [id, project])
+    }, [id, singleProjectAPI])
 
     const handleDelete = (e) => {
         e.preventDefault()
