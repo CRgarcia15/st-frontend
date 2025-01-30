@@ -9,16 +9,10 @@ function ExpandedPrct () {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(singleProjectAPI, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "applcation/json",
-                Authorization: "Bearer " + localStorage.getItem("token")
-            }
-        })
-            .then((res) => res.json())
-            .then((project) => setProject(project))
-    }, [id, singleProjectAPI]) // Not sure if singleProjectAPI should be there, still need to figure it out. Only reason its there is to remove the warning in console
+        fetch(singleProjectAPI)
+        .then((res) => res.json())
+        .then((project) => setProject(project))
+    }, [id])
 
     const handleDelete = (e) => {
         e.preventDefault()
