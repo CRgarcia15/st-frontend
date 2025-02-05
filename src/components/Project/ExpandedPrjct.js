@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from "react-router-dom"
 
@@ -8,17 +8,21 @@ function ExpandedPrct () {
     const singleProjectAPI = `http://localhost:7000/project/${id}/`
     const navigate = useNavigate()
 
-    useEffect(() => {
-        fetch(singleProjectAPI, {
+    const fetchProject = useCallback(async () => {
+
+        let response = await  fetch(singleProjectAPI, {
             headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("token")
             }
         })
-        .then((res) => res.json())
-        .then((project) => setProject(project))
-        console.log(project)
-    }, [id, singleProjectAPI])
+        response = await response.json()
+        setProject(response)
+    },[singleProjectAPI])
+
+    useEffect(() => {
+        fetchProject()
+    }, [fetchProject])
 
     const handleDelete = (e) => {
         e.preventDefault()
@@ -32,19 +36,11 @@ function ExpandedPrct () {
         navigate('/User/userProjects')
     }
     
-    return (
+   console.log(project)
+
+    return(
         <div>
-            <div>
-                <h1>{project.projectName}</h1>
-                <h3>{project.dueDate}</h3>
-                <h3>this is the project you created</h3>
-                
-            </div>
-            
-            <Link className="text-gray-700 transition mt-2 ease-in-out delay-150 hover:text-white hover:bg-lime-800 rounded p-1 font-semibold" to="/User/userProjects">Go Back</Link>
-            <form onSubmit={handleDelete}>
-                <button type="submit" value="DELETE">DELETE</button>
-            </form>
+            <h1 className="text-red-700">{project[0].projectName}</h1>
         </div>
     )
 }
