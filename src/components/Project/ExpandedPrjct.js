@@ -1,5 +1,4 @@
-import React, { useCallback } from "react";
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom"
 
 function ExpandedPrct () {
@@ -10,7 +9,7 @@ function ExpandedPrct () {
 
     const fetchProject = useCallback(async () => {
 
-        let response = await  fetch(singleProjectAPI, {
+        let response = await fetch(singleProjectAPI, {
             headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("token")
@@ -18,7 +17,9 @@ function ExpandedPrct () {
         })
         response = await response.json()
         setProject(response)
-    },[singleProjectAPI])
+        console.log("Fetched project:", response);
+
+    },[singleProjectAPI])// removed singleProjectAPI from the dependency array
 
     useEffect(() => {
         fetchProject()
@@ -40,7 +41,7 @@ function ExpandedPrct () {
 
     return(
         <div>
-            <h1 className="text-red-700">{project[0].projectName}</h1>
+            <h1 className="text-red-700">{project.projectName}</h1>
         </div>
     )
 }
