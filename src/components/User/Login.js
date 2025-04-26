@@ -37,7 +37,7 @@ function Login() {                                         //got to fix the styl
         <main>
             {errorMessage !== null
                 ?(
-                    <div className="alert alert-danger" role="alert">
+                    <div className="alert alert-danger text-red-600 background-orange" role="alert">
                         {errorMessage}
                     </div>
                 )
