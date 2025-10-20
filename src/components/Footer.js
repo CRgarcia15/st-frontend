@@ -1,6 +1,5 @@
 import React from "react";
 
-//just a solution that I think works
 function Footer () {
     return(
         <>
