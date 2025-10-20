@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 function Home() {
   const slides = [
@@ -20,22 +20,33 @@ function Home() {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
+    const interval = setInterval(() => {
+      // Fade out
+      setFade(false);
+      // Wait for fade-out before changing slide
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % slides.length);
+        setFade(true);
+      }, 500); // 500ms fade duration
     }, 5000);
-    return () => clearInterval(timer);
+
+    return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 p-6">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8">
         {/* Left Section (Carousel) */}
-        <div className="relative bg-white p-8 rounded-2xl shadow-lg overflow-hidden flex flex-col justify-center transition-all duration-500">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4 transition-all duration-700">
+        <div className="relative bg-white p-8 rounded-2xl shadow-lg overflow-hidden flex flex-col justify-center">
+          <div
+            className={`text-center transition-all duration-700 ease-in-out transform ${
+              fade ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            }`}
+          >
+            <h3 className="text-3xl font-bold text-gray-800 mb-4">
               {slides[current].quote}
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
@@ -52,8 +63,8 @@ function Home() {
               <div
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`w-3 h-3 rounded-full cursor-pointer ${
-                  i === current ? "bg-green-700" : "bg-gray-300"
+                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                  i === current ? "bg-green-700 scale-110" : "bg-gray-300"
                 }`}
               ></div>
             ))}
