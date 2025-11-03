@@ -58,7 +58,7 @@ function UserProjects() {
           </div>
 
           <button
-            onClick={() => navigate("/project/new")}
+            onClick={() => navigate("/project/create")}
             className="bg-lime-700 hover:bg-lime-800 text-white px-5 py-2.5 rounded-full font-semibold shadow-md transition-all duration-200"
           >
             + New Project
@@ -102,7 +102,7 @@ function UserProjects() {
                       </p>
                     </div>
                     <p className="mt-4 text-sm font-semibold text-lime-900 group-hover:text-lime-50">
-                      View Assignments →
+                      Expand →
                     </p>
                   </Link>
                 );

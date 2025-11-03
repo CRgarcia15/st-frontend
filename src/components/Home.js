@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,} from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   const slides = [
@@ -79,9 +80,14 @@ function Home() {
           <p className="text-gray-600 mb-6">
             Manage your time, track your goals, and achieve more with less stress.
           </p>
-          <div className="mt-4 w-full h-40 bg-gradient-to-tr from-green-300 to-green-600 rounded-xl flex items-center justify-center text-white text-3xl font-bold">
+          {/* Button to Login */}
+          <Link
+            to="/login"
+            className="mt-4 w-full h-40 bg-gradient-to-tr from-green-300 to-green-600 rounded-xl flex items-center justify-center text-white text-3xl font-bold
+                 hover:from-green-400 hover:to-green-700 active:scale-95 transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-green-300"
+          >
             🚀 Start Today
-          </div>
+          </Link>
           <button className="mt-6 px-4 py-1.5 bg-green-700 text-white font-semibold rounded-md shadow hover:bg-green-800 transition-colors duration-300 text-sm">
             Learn More
           </button>

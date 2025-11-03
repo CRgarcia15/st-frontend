@@ -8,6 +8,7 @@ import CreateProject from './components/Project/CreateProject';
 import ExpandedPrct from './components/Project/ExpandedPrjct';
 import UserProjects from './components/Project/userProjects';
 import Footer from './components/Footer';
+import About from './components/About'
 import {Route, Routes} from "react-router-dom"
 
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/project/create" element={<CreateProject />}/>
             <Route path="/project/:id" element={<ExpandedPrct />}/>
             <Route path="/*" element={<Err />}/>
+            <Route path="/about" element={<About />}/>
           </Routes>
           <Footer />
       </div>
