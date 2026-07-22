@@ -6,7 +6,7 @@ function Login() {
 
   const [credentials, setCredentials] = useState({
     username: "",
-    password: "",
+    password: ""
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -23,7 +23,7 @@ function Login() {
 
     const data = await response.json();
 
-    if (response.status === 200) {
+    if (response.ok) {
       localStorage.setItem("token", data);
       navigate("/User/userProjects");
     } else {

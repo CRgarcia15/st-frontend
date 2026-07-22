@@ -1,32 +1,52 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 function Signup() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+
+ // const [username, setUsername] = useState("");
+ //const [password, setPassword] = useState("");
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: ""
+  })
   const navigate = useNavigate();
+  const [errorMessage, setErrorMesage] = useState(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    const user = { username, password };
-
-    fetch("http://localhost:7000/user/signup", {
+    const response = await fetch('http://localhost:7000/user/signup', {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
-    }).then(() => {
-      console.log("New user created");
-      navigate("/");
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
     });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("token", data);
+      navigate("/User/userprojects")
+    } else {
+      setErrorMesage(data.message);
+    }
   }
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 px-6">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+      <div className="wrname-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         {/* Title */}
         <h1 className="text-3xl font-bold text-lime-700 mb-6 text-center">
           Create an Account
         </h1>
+
+         {/* Error Message */}
+        {errorMessage && (
+          <div className="mb-4 p-3 rounded-lg bg-red-100 text-red-700 text-center text-sm font-semibold border border-red-300">
+            {errorMessage}
+          </div>
+        )}
 
         {/* Sign-Up Form */}
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -45,8 +65,8 @@ function Signup() {
               id="username"
               placeholder="Choose a username"
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={credentials.username}
+              onChange={(e) => setCredentials({...credentials, username: e.target.value})}
             />
           </div>
 
@@ -65,8 +85,8 @@ function Signup() {
               id="password"
               placeholder="Create a strong password"
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={credentials.password}
+              onChange={(e) => setCredentials({...credentials, password: e.target.value})}
             />
           </div>
 

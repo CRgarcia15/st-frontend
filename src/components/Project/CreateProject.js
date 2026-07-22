@@ -27,7 +27,6 @@ function CreateProject() {
 
       if (response.ok) {
         setSuccess(true);
-
         // Redirect after 2 seconds
         setTimeout(() => {
           navigate("/User/userProjects");
